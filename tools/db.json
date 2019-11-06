@@ -69,6 +69,14 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
+    },
+    {
+      "id": 11,
+      "title": "How to Knit",
+      "authorId": 4,
+      "category": "Knitting",
+      "createdAt": 1573059306192,
+      "slug": "how-to-knit"
     }
   ],
   "authors": [
@@ -86,6 +94,12 @@
       "id": 3,
       "name": "Dan Wahlin",
       "slug": "dan-wahlin"
+    },
+    {
+      "id": 4,
+      "name": "Hannah Willis",
+      "createdAt": 1573059271704,
+      "slug": "hannah-willis"
     }
   ]
 }

@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import Spinner from '../common/Spinner';
 import { Redirect } from 'react-router-dom';
 
-function AuthorsPage({ loadAuthors, authors, deleteAuthor, loading }) {
+function AuthorsPage({ loadAuthors, authors, deleteAuthor, courses, loading }) {
     const [ redirectToAddCoursePage, setRedirectToAddPage ] = useState(false);
 
     useEffect(() => {
@@ -19,7 +19,12 @@ function AuthorsPage({ loadAuthors, authors, deleteAuthor, loading }) {
     }, []);
 
     async function handleDeleteAuthor(author) {
-        toast.success("Course deleted.");
+        if (courses.some(c => c.authorId == author.id))  {
+            toast.error("This Author has a Course. Cannot be Deleted.");
+            return;
+        }
+
+        toast.success("Author deleted.");
         try {
             await deleteAuthor(author);
         } catch (error) {
@@ -53,6 +58,7 @@ function AuthorsPage({ loadAuthors, authors, deleteAuthor, loading }) {
 AuthorsPage.propTypes = {
     loadAuthors: PropTypes.func.isRequired,
     authors: PropTypes.array.isRequired,
+    courses: PropTypes.array.isRequired,
     deleteAuthor: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired
 }
@@ -60,6 +66,7 @@ AuthorsPage.propTypes = {
 function mapStateToProps(state) {
     return {
         authors: state.authors,
+        courses: state.courses,
         loading: state.apiCallsInProgress > 0
     };
 }
