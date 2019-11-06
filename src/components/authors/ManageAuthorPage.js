@@ -53,8 +53,6 @@ function ManageAuthorPage({ saveAuthor, history, loadAuthors, authors, ...props 
         })
     }
 
-    debugger;
-
     return authors.length === 0 ? (
         <Spinner />
     ) : (
@@ -77,7 +75,6 @@ ManageAuthorPage.propTypes = {
 }
 
 function getAuthorBySlug(authors, slug) {
-    debugger;
 	return authors.find(author => author.slug === slug) || null;
 }
 

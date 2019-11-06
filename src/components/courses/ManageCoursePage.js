@@ -63,8 +63,6 @@ export function ManageCoursePage( { courses, authors, loadAuthors, loadCourses, 
 		});
 	}
 
-	debugger;
-
 	return authors.length === 0 || courses.length === 0 ? (
 		<Spinner />
 	) : (
