@@ -8,7 +8,7 @@ import Spinner from '../common/Spinner';
 import { Redirect } from 'react-router-dom';
 
 function AuthorsPage({ loadAuthors, authors, deleteAuthor, courses, loading }) {
-    const [ redirectToAddCoursePage, setRedirectToAddPage ] = useState(false);
+    const [ redirectToAddAuthorPage, setRedirectToAddPage ] = useState(false);
 
     useEffect(() => {
         if (authors.length === 0) {
@@ -34,7 +34,7 @@ function AuthorsPage({ loadAuthors, authors, deleteAuthor, courses, loading }) {
 
     return (
         <>
-            { redirectToAddCoursePage && <Redirect to="/author" /> }
+            { redirectToAddAuthorPage && <Redirect to="/author" /> }
             <h2>Authors</h2>
             { loading ? (
                     <Spinner />
